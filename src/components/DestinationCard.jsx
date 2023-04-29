@@ -14,7 +14,10 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '20px',
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#00308F'
+    color: '#00308F',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '2rem',
+    },
   },
   cardContainer: {
     margin: '10px',
@@ -22,36 +25,51 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#218313',
     borderRadius: '10px',
     boxShadow: '0px 0px 5px #ccc',
+    [theme.breakpoints.down('sm')]: {
+      margin: '5px',
+      padding: '10px',
+    },
   },
   cardImage: {
-   height: '200px',
-   width: '300px',
-   objectFit: 'cover',
+    height: '200px',
+    width: '300px',
+    objectFit: 'cover',
     borderRadius: '10px',
-    
+    [theme.breakpoints.down('sm')]: {
+      height: '150px',
+      width: '250px',
+    },
   },
   cardText: {
     marginTop: '10px',
     textAlign: 'center',
     marginBottom: '10px',
     fontSize: '20px',
-    color: 'white'
+    color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.2rem',
+    },
   },
   costText: {
     fontWeight: 'bold',
     color: 'white',
   }, 
   bookButton: {
-    
     backgroundColor: '#FFA500',
-    color: 'black'
+    color: 'black',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.8rem',
+    },
   },
   detailsButton: {
-    
     marginLeft: '20em',
     backgroundColor: '#FFA500',
-    color: 'black'
-   
+    color: 'black',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '0',
+      marginTop: '10px',
+      fontSize: '0.8rem',
+    },
   }
 }))
 

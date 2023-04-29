@@ -8,9 +8,9 @@ const app = express();
 const pool = new Pool ({
     user: "postgres",
     host: "localhost",
-    database: "data",
+    database: "travellersinfo",
     password: "noobmaster69",
-    port: "5433"
+    port: "5432"
 })
 // Middleware
 app.use(cors());
@@ -23,7 +23,7 @@ app.post("/api/contact", (req, res) => {
 //   console.log(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`);
 //   res.json({ message: "Form data received!" });
 pool.query(
-    'INSERT INTO contacts(name,email,phone,message) VALUES ($1, $2, $3, $4)',
+    'INSERT INTO travellersinfo(name,email,phone,message) VALUES ($1, $2, $3, $4)',
     [name, email, phone, message],
     (error, results) => {
         if (error) {

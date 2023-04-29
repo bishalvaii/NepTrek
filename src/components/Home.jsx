@@ -2,6 +2,7 @@ import React from "react";
 import PopularDestinations from "./DestinationCard";
 import GetInTouch from "./GetInTouch";
 import Hero from "./Hero";
+import Services from "./Services";
 
 function Home() {
     return (
@@ -11,6 +12,7 @@ function Home() {
           dates={['Jan1, 2023', 'Dec2, 2022', 'Oct24, 2021']} 
           locations={["Khumbu", "Annapurna", "Mustang"]}   imageUrl="" />
         <PopularDestinations />
+        <Services />
         <GetInTouch />
       </>
     )

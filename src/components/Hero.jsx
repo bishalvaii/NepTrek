@@ -19,10 +19,11 @@ const useStyles = makeStyles((theme) => ({
   hero: {
     width: '100%',
     height: '500px',
-    // backgroundColor: theme.palette.primary.main,
-    // color: theme.palette.primary.contrastText,
     padding: '20px',
     background: 'linear-gradient(to right, #204d2f, #14640e)',
+    [theme.breakpoints.down('md')]: {
+      height: 'auto'
+    }
   },
   heroLeft: {
     display: 'flex',
@@ -30,19 +31,31 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  heroRight: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover'
+    heroRight: {
+      width: '100%',
+      height: '100%',
+      marginTop: '-70px' ,
+      objectFit: 'cover',
+      [theme.breakpoints.down('sm')]: {
+        height: 'auto',
+        maxHeight: '600px',
+        marginBottom: '20px',
+     
+      }
   },
   searchButton: {
-    marginTop: '20px'
+    marginTop: '20px',
+    backgroundColor: 'darkorange'
   },
   title: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: '20px'
+    marginBottom: '20px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '2rem', // adjust the font size for small screens
+      marginBottom: '10px', // adjust the margin for small screens
+    },
   },
   subtitle: {
     color: 'white',
@@ -50,7 +63,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '20px',
     display: 'block',
     overflow: 'hidden',
-    maxHeight:'3.6em'
+    maxHeight:'3.6em',
+    [theme.breakpoints.down('sm')]: {
+      maxHeight: 'none'
+    }
   },
   locationDateSearch: {
     display: 'flex',
@@ -58,31 +74,47 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: '30px',
-    
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+      alignItems: 'flex-start'
+    }
   },
-  searchButton: {
-    marginLeft: '10px',
-    backgroundColor: 'darkorange',
-    
-  },
+
   selectContainer: {
     display: 'flex',
     alignItems: 'center',
-    marginRight: '10px'
+    marginRight: '10px',
+    backgroundColor: 'darkorange', // custom background color
+    borderRadius: '2px',
+    padding: '5px', // custom padding
+    marginBottom: '20px',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+     
+     
     },
-    select: {
-    minWidth: '150px'
+
     },
-    locationIcon: {
-    marginRight: '5px'
-    },
-    dateIcon: {
-    marginRight: '5px'
-    },
-    menuItem: {
-      fontSize: '50px'
-    }
+    
+  select: {
+    minWidth: '150px',
+    marginBottom: '20px',
+    color: 'white'
+  },
+  locationIcon: {
+    marginRight: '2px',
+    padding: '10px',
+    color: 'white'
+  },
+  dateIcon: {
+    marginRight: '2px',
+    padding: '10px',
+    color: 'white'
+  },
+ 
 }));
+
 
 const Hero = ({title, subtitle, locations, dates, imageUrl}) => {
     const classes = useStyles();
@@ -112,7 +144,7 @@ const Hero = ({title, subtitle, locations, dates, imageUrl}) => {
             onChange={(event) => setSelectedLocation(event.target.value)}
         >
             {locations?.map((location, index) => (
-            <MenuItem className={classes.menuItem}key={index} value={location}>{location}</MenuItem>
+            <MenuItem  key={index} value={location}>{location}</MenuItem>
         ))}
         </Select>
       </div>

@@ -12,7 +12,33 @@ const useStyles = makeStyles(theme => ({
   service: {
     textAlign: 'center',
     padding: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(1),
+    },
   },
+ titles: {
+  [theme.breakpoints.down('sm')]: {
+    fontWeight: 'bold'
+  },
+ },
+  description: {
+    fontSize: '1rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.8rem',
+    },
+  },
+  image: {
+    maxHeight: '250px',
+    [theme.breakpoints.down('sm')]: {
+      maxHeight: '300px',
+    },
+  },
+  header: {
+    textAlign: "center",
+        fontWeight: "bold",
+        color: theme.palette.primary.main,
+        marginBottom: "20px",
+  }
 }));
 
 const services = [
@@ -54,14 +80,14 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h5" gutterBottom>
+      <Typography  className={classes.header}variant="h4" gutterBottom>
         Our Services
       </Typography>
       <Grid container spacing={3}>
         {services.map((service, index) => (
           <Grid key={index} item xs={4}>
             <div className={classes.service}>
-              <Typography variant="h6">{service.title}</Typography>
+              <Typography className={classes.titles} variant="h6">{service.title}</Typography>
               <Typography variant="subtitle1">{service.description}</Typography>
               <Image src={service.image} alt="pic " />
             </div>
