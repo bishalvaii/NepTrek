@@ -18,34 +18,34 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   hero: {
     width: '100%',
-    height: '500px',
     padding: '20px',
     background: 'linear-gradient(to right, #204d2f, #14640e)',
-    [theme.breakpoints.down('md')]: {
-      height: 'auto'
-    }
   },
   heroLeft: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '-20px', // Adjust the margin for small screens
+    },
   },
-    heroRight: {
-      width: '100%',
-      height: '100%',
-      marginTop: '-70px' ,
-      objectFit: 'cover',
-      [theme.breakpoints.down('sm')]: {
-        height: 'auto',
-        maxHeight: '600px',
-        marginBottom: '20px',
-     
-      }
+  heroRight: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    [theme.breakpoints.down('sm')]: {
+      height: 'auto',
+      maxHeight: '300px', // Adjust the maximum height for small screens
+      marginBottom: '10px', // Adjust the margin for small screens
+    },
   },
   searchButton: {
     marginTop: '20px',
-    backgroundColor: 'darkorange'
+    backgroundColor: 'darkorange',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '10px', // Adjust the margin for small screens
+    },
   },
   title: {
     color: 'white',
@@ -53,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginBottom: '20px',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '2rem', // adjust the font size for small screens
-      marginBottom: '10px', // adjust the margin for small screens
+      fontSize: '2rem',
+      marginBottom: '10px',
     },
   },
   subtitle: {
@@ -63,10 +63,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '20px',
     display: 'block',
     overflow: 'hidden',
-    maxHeight:'3.6em',
+    maxHeight: '3.6em',
     [theme.breakpoints.down('sm')]: {
-      maxHeight: 'none'
-    }
+      maxHeight: 'none',
+    },
   },
   locationDateSearch: {
     display: 'flex',
@@ -76,42 +76,45 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '30px',
     [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
-      alignItems: 'flex-start'
-    }
+      alignItems: 'center', // Center the items for medium screens
+    },
   },
-
   selectContainer: {
     display: 'flex',
     alignItems: 'center',
     marginRight: '10px',
-    backgroundColor: 'darkorange', // custom background color
+    backgroundColor: 'darkorange',
     borderRadius: '2px',
-    padding: '5px', // custom padding
+    padding: '5px',
     marginBottom: '20px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      alignItems: 'flex-start',
-     
-     
+      alignItems: 'center', // Center the items for small screens
+      borderRadius: '1px',
+      padding: '3px', // Adjust the padding for small screens
+      marginBottom: '10px', // Adjust the margin for small screens
+      width: '180px', // Set a fixed width for small screens
     },
-
-    },
-    
+  },
   select: {
     minWidth: '150px',
     marginBottom: '20px',
-    color: 'white'
+    color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '10px', // Adjust the margin for small screens
+    },
   },
   locationIcon: {
     marginRight: '2px',
     padding: '10px',
-    color: 'white'
+    color: 'white',
   },
   dateIcon: {
     marginRight: '2px',
     padding: '10px',
-    color: 'white'
+    color: 'white',
   },
+
  
 }));
 

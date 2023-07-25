@@ -27,17 +27,16 @@ const useStyles = makeStyles(theme => ({
     boxShadow: '0px 0px 5px #ccc',
     [theme.breakpoints.down('sm')]: {
       margin: '5px',
-      padding: '10px',
+      padding: '15px', // Adjust the padding for small screens
     },
   },
   cardImage: {
     height: '200px',
-    width: '300px',
+    width: '100%', // Adjust the width to fill the container on small screens
     objectFit: 'cover',
     borderRadius: '10px',
     [theme.breakpoints.down('sm')]: {
       height: '150px',
-      width: '250px',
     },
   },
   cardText: {
@@ -47,30 +46,33 @@ const useStyles = makeStyles(theme => ({
     fontSize: '20px',
     color: 'white',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '1.2rem',
+      fontSize: '1rem', // Adjust the font size for small screens
     },
   },
   costText: {
     fontWeight: 'bold',
     color: 'white',
-  }, 
+  },
   bookButton: {
     backgroundColor: '#FFA500',
     color: 'black',
     [theme.breakpoints.down('sm')]: {
       fontSize: '0.8rem',
+      width: '100%', // Adjust the width to fill the container on small screens
+      marginBottom: '5px', // Adjust the margin for small screens
     },
   },
   detailsButton: {
-    marginLeft: '20em',
+    marginLeft: 'auto', // Align the button to the right on large screens
     backgroundColor: '#FFA500',
     color: 'black',
     [theme.breakpoints.down('sm')]: {
       marginLeft: '0',
       marginTop: '10px',
       fontSize: '0.8rem',
+      width: '100%', // Adjust the width to fill the container on small screens
     },
-  }
+  },
 }))
 
 const destinations = [
@@ -96,7 +98,7 @@ const destinations = [
       days: "10 days"
     },
     {
-      id: '4',
+      id: 4,
       name: "Langtang Region Trekking",
       image: "https://nepalguidetrekking.com/uploads/package/frontend/similar-tibet-culture-and-langtang-valley-trekking-12-days.jpg",
       cost: "$2000",
@@ -131,24 +133,19 @@ const destinations = [
         
 
         {destinations.map(destination => (
-          <Grid item key={destination.id} xs={4}>
-        <Box className={classes.cardContainer}>
-              <Typography className={classes.cardText}>{destination.name}</Typography>
-              <Image className={classes.cardImage} src={destination.image}  />
-              <div>
-                <Typography className={classes.cardText}>Cost: <span className={classes.costText}>{destination.cost}</span></Typography>
+            <Grid item xs={12} sm={6} md={4}>
+            <div className={classes.cardContainer}>
+              <Typography className={classes.cardText} variant="h6">
+                {destination.name}
+              </Typography>
+              <Typography variant="subtitle1">{destination.description}</Typography>
+              <Image src={destination.image} alt="pic" className={classes.cardImage} />
+              <Typography className={classes.cardText}>Cost: <span className={classes.costText}>{destination.cost}</span></Typography>
                 <Typography className={classes.cardText}>Duration: {destination.days}</Typography>
                
                 <Link to="/book"><Button onClick={() => setSelectedDestination(destination)} className={classes.bookButton} variant="contained" color="primary">Book</Button></Link>
                 <Button className={classes.detailsButton} onClick={() => setSelectedDestination(destination)}variant="contained" color="primary">View details</Button>
-             
-
-             
-              </div>
-             
-
-            </Box>
-            
+            </div>
           </Grid>
         ))}
         

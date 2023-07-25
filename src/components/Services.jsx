@@ -7,44 +7,47 @@ import Image from 'mui-image';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    padding: theme.spacing(4),
+    padding: theme.spacing(2), // Reduce the padding for small screens
   },
   service: {
     textAlign: 'center',
-    padding: theme.spacing(2),
+    padding: theme.spacing(1), // Reduce the padding for small screens
+  },
+  titles: {
+    fontWeight: 'bold',
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(1),
+      fontSize: '1.2rem', // Adjust the font size for small screens
     },
   },
- titles: {
-  [theme.breakpoints.down('sm')]: {
-    fontWeight: 'bold'
-  },
- },
   description: {
     fontSize: '1rem',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '0.8rem',
+      fontSize: '0.9rem', // Adjust the font size for small screens
     },
   },
   image: {
-    maxHeight: '250px',
+    maxHeight: '200px', // Reduce the maxHeight for small screens
     [theme.breakpoints.down('sm')]: {
-      maxHeight: '300px',
+      maxHeight: '250px', // Adjust the maxHeight for small screens
     },
   },
   header: {
-    textAlign: "center",
-        fontWeight: "bold",
-        color: theme.palette.primary.main,
-        marginBottom: "20px",
-  }
+    
+    marginTop: '20px',
+    marginBottom: '20px',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#00308F',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '2rem',
+    },}
+  
 }));
 
 const services = [
   {
     title: 'Guided Tours',
-    image: 'https://www.nepaltraveladventure.com/uploads/resized/album_2020-01-06%2009:56:13_nepal-family-tour-in-nepal.jpg',
+    image: 'https://hsj.com.np/uploads/0000/386/2020/05/05/bhairav-kunda.jpeg',
     description: 'Explore the best of the destination with our expert guides',
     
   },
@@ -78,22 +81,21 @@ const services = [
 export default function Services() {
   const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      <Typography  className={classes.header}variant="h4" gutterBottom>
-        Our Services
-      </Typography>
-      <Grid container spacing={3}>
-        {services.map((service, index) => (
-          <Grid key={index} item xs={4}>
-            <div className={classes.service}>
-              <Typography className={classes.titles} variant="h6">{service.title}</Typography>
-              <Typography variant="subtitle1">{service.description}</Typography>
-              <Image src={service.image} alt="pic " />
-            </div>
-          </Grid>
-        ))}
-      </Grid>
-    </div>
-  );
+  return ( <div className={classes.root}>
+    <Typography className={classes.header} variant="h4" gutterBottom>
+      Our Services
+    </Typography>
+    <Grid container spacing={3}>
+      {services.map((service, index) => (
+        <Grid key={index} item xs={12} sm={6} md={6} lg={4}>
+          <div className={classes.service}>
+            <Typography className={classes.titles} variant="h6">{service.title}</Typography>
+            <Typography variant="subtitle1">{service.description}</Typography>
+            <Image src={service.image} alt="pic" className={classes.image} />
+          </div>
+        </Grid>
+      ))}
+    </Grid>
+  </div>)
+  
 }

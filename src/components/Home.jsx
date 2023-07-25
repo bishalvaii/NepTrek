@@ -14,7 +14,7 @@ function Home() {
         <PopularDestinations />
         <Services />
         <GetInTouch />
-      </>
+      </> 
     )
   }
   export default Home;
